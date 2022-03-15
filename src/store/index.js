@@ -5,7 +5,7 @@ export default createStore({
   state: {
     data: data,
     searchTerm: '',
-    result: []
+    result: data
   },
   getters: {
   },

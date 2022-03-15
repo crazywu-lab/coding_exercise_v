@@ -5,10 +5,18 @@
     </div>
     <div class="info-container">
       <h3>{{ product.description }}</h3>
-      <h4>Price: <span>{{ product.price}}</span></h4>
-      <h5>Availability: <span>{{ product.availability }}</span></h5>
-      <h6>Rating: {{product.rating}}</h6>
-      <p>Location: aisle - {{product.aisle}} bay - {{product.bay}}</p>
+      <div class="info-block">
+        <h4>
+          Price: <span>{{ product.price }}</span>
+        </h4>
+        <h6>Rating: {{ product.rating }}</h6>
+      </div>
+
+      <h5>
+        Availability: <span>{{ product.availability }}</span>
+      </h5>
+
+      <p>Location: aisle - {{ product.aisle }} bay - {{ product.bay }}</p>
       <button>
         <a :href="product.navigationUrl" target="_blank">More Details</a>
       </button>
@@ -32,16 +40,37 @@ export default {
 
 <style scoped>
 .product-card {
+  min-width: 80vw;
   display: flex;
   flex-wrap: wrap;
+  background: #f5f5f5;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 6px 0 rgba(31, 38, 135, 0.3);
 }
 .img-container {
-  width: 30%;
+  width: 100%;
+  height: 40vh;
+  background: white;
+  border-radius: 20px;
 }
 .img-container > img {
+  border-radius: 20px;
   width: 100%;
+  object-fit: cover;
+  height: auto;
 }
 .info-container {
-  width: 70%;
+  width: 100%;
+}
+.info-container > h3 {
+  white-space: normal;
+  text-align: left;
+  padding: 0 20px;
+  margin: 0;
+}
+.info-block {
+  display: flex;
+  justify-content: space-around;
 }
 </style>

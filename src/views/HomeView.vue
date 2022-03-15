@@ -23,7 +23,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.home{
+  height: 100vh;
+}
 .result-container {
   width: 90vw;
 }

@@ -20,6 +20,5 @@ export default {
 .filter-container{
     width: 100%;
     background: rgb(197, 197, 197);
-    /* position: fixed; */
 }
 </style>
