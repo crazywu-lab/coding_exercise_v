@@ -16,9 +16,9 @@
         Availability: <span>{{ product.availability }}</span>
       </h5>
 
-      <p>Location: aisle - {{ product.aisle }} bay - {{ product.bay }}</p>
+      <!-- <p>Location: aisle - {{ product.aisle }} bay - {{ product.bay }}</p> -->
       <button>
-        <a :href="product.navigationUrl" target="_blank">More Details</a>
+        <a :href="product.navigationUrl" target="_blank" >More Details</a>
       </button>
     </div>
   </div>
@@ -41,6 +41,7 @@ export default {
 <style scoped>
 .product-card {
   min-width: 80vw;
+  height: 75vh;
   display: flex;
   flex-wrap: wrap;
   background: #f5f5f5;
@@ -68,6 +69,26 @@ export default {
   text-align: left;
   padding: 0 20px;
   margin: 0;
+}
+
+.info-container > h5 {
+  margin: 0;
+}
+.info-container > button {
+  text-decoration: none;
+  border: none;
+  color: white;
+  background: black;
+  padding: 10px;
+  border-radius: 20px;
+}
+.info-container > button > a {
+  text-decoration: none;
+  border-bottom: 0;
+  color: white;
+}
+.info-container > button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .info-block {
   display: flex;

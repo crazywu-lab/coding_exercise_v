@@ -1,6 +1,6 @@
 <template>
   <div class="list-results">
-    <h1>Products</h1>
+    <h2>Products</h2>
     <div class="list-card">
       <ProductCard
         v-for="product in result"
@@ -32,7 +32,7 @@ export default {
 .list-results {
   width: 100%;
 }
-.list-results > h1 {
+.list-results > h2 {
   margin: 0;
   width: 40vw;
   text-align: left;

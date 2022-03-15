@@ -1,12 +1,12 @@
 <template>
   <div class="search-bar">
-    <form action="">
+    <form action="" class="search-form">
       <input type="text" placeholder="type your keyword" v-model="searchTerm" />
 
-      <button class="search-btn" @click="$store.commit('handleSearch')">
+      <button @click="$store.commit('handleSearch')">
         Search
       </button>
-      <button @click="$store.commit('showAll')">Show All</button>
+      <!-- <button @click="$store.commit('showAll')">Show All</button> -->
     </form>
   </div>
 </template>
@@ -30,6 +30,22 @@ export default {
 
 <style scoped>
 .search-bar {
-  width: 90vw;
+  width: 95vw;
+}
+.search-form > input{
+  width: 70%;
+  border: 1px solid #ccc;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.search-form > button {
+  border: 0;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
 }
 </style>
