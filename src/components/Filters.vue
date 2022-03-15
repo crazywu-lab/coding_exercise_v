@@ -1,25 +1,39 @@
 <template>
-  <div class="filter-container">
-    Filters
-    <div class="filter-list">
+  <div class="sort-container">
+    Sort
+    <div class="sort-list">
       <div class="dropdown">
-        <button class="dropbtn">Sort by price</button>
-        <div class="dropdown-content">
-          <button @click="$store.commit('sortPriceLowHigh')">
-            Price - low to high
-          </button>
-          <button @click="$store.commit('sortPriceHighLow')">
-            Price - high to low
-          </button>
-        </div>
+        <input class="dropbtn" id="sort-price" type="checkbox" name="sorter" />
+        <label for="sort-price">Sort by price</label>
+        <ul class="dropdown-content">
+          <li>
+            <button @click="$store.commit('sortPriceLowHigh')">
+              Price - low to high
+            </button>
+          </li>
+          <li>
+            <button @click="$store.commit('sortPriceHighLow')">
+              Price - high to low
+            </button>
+          </li>
+        </ul>
       </div>
-
-      <button @click="$store.commit('sortRatingLowHigh')">
-        Rating - low to high
-      </button>
-      <button @click="$store.commit('sortRatingHighLow')">
-        Rating - high to low
-      </button>
+      <div class="dropdown">
+        <input class="dropbtn" id="sort-price" type="checkbox" name="sorter" />
+        <label for="sort-price">Sort by rating</label>
+        <ul class="dropdown-content">
+          <li>
+            <button @click="$store.commit('sortRatingLowHigh')">
+              Rating - low to high
+            </button>
+          </li>
+          <li>
+            <button @click="$store.commit('sortRatingHighLow')">
+              Rating - high to low
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -29,22 +43,37 @@ export default {};
 </script>
 
 <style scoped>
-.filter-container {
+.sort-container {
   width: 100%;
-  background: rgb(197, 197, 197);
 }
-.dropdown-content {
+.sort-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.droptdown{
+  width: 50%;
+  max-height: 50px;
+}
+
+input,
+ul.dropdown-content {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 }
-.dropdown-content button {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
+
+label {
+  position: relative;
   display: block;
+  cursor: pointer;
+  width: 150px;
+  border: 1px black solid;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+input:checked ~ ul.dropdown-content {
+  display: block;
+  position: relative;
+  list-style-type: none;
 }
 </style>
