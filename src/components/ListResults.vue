@@ -22,4 +22,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.list-results{
+  width: 100%;
+}
+</style>
