@@ -73,7 +73,7 @@ label {
 
 input:checked ~ ul.dropdown-content {
   display: block;
-  position: relative;
+  position: absolute;
   list-style-type: none;
 }
 </style>
