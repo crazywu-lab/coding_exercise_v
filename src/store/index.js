@@ -1,42 +1,56 @@
-import { createStore } from 'vuex'
-import data from '@/data/search-results.json';
+import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
-    data: data,
-    searchTerm: '',
-    result: data
+    searchTerm: "",
+    result: [],
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
     setSearchTerm(state, newValue) {
-      state.searchTerm = newValue
+      state.searchTerm = newValue;
     },
-    showAll(state){
-      state.result = state.data;
+    setProducts(state, data) {
+      state.result = data;
     },
-    handleSearch(state){
-      state.result = state.data.filter((product) => product.description.toLowerCase().includes(state.searchTerm) && product.availability > 0);
+    handleSearch(state, data) {
+      state.result = data;
     },
-    sortPriceLowHigh(state){
-      state.result.sort((a,b) => a.price.slice(1) - b.price.slice(1))
+    sortPriceLowHigh(state) {
+      state.result.sort((a, b) => a.price.slice(1) - b.price.slice(1));
     },
-    sortPriceHighLow(state){
-      state.result.sort((a,b) => b.price.slice(1) - a.price.slice(1))
+    sortPriceHighLow(state) {
+      state.result.sort((a, b) => b.price.slice(1) - a.price.slice(1));
     },
-    sortRatingLowHigh(state){
-      state.result.sort((a,b) => a.rating - b.rating)
+    sortRatingLowHigh(state) {
+      state.result.sort((a, b) => a.rating - b.rating);
     },
-    sortRatingHighLow(state){
-      state.result.sort((a,b) => b.rating - a.rating)
+    sortRatingHighLow(state) {
+      state.result.sort((a, b) => b.rating - a.rating);
     },
   },
   actions: {
-    // showAll({commit}){
-    //   commit('showAll')
-    // }
+    loadProducts({ commit }) {
+      axios
+        .get("http://localhost:3000/api/test/products/")
+        .then((response) => {
+          commit("setProducts", response.data);
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
+    handleSearch({ commit, state }) {
+      axios
+        .get("http://localhost:3000/api/test/products/search/" + state.searchTerm)
+        .then((response) => {
+          commit("handleSearch", response.data);
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
