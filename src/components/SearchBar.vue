@@ -3,7 +3,7 @@
     <form action="" class="search-form">
       <input type="text" placeholder="type your keyword" v-model="searchTerm" />
 
-      <button @click="$store.commit('handleSearch')">
+      <button @click="$store.dispatch('handleSearch')">
         Search
       </button>
       <!-- <button @click="$store.commit('showAll')">Show All</button> -->

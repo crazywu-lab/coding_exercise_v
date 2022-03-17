@@ -20,11 +20,14 @@ export default {
     ListResults,
     Filters,
   },
+  created() {
+    this.$store.dispatch('loadProducts');
+  },
 };
 </script>
 
 <style scoped>
-.home{
+.home {
   height: 100vh;
 }
 .result-container {

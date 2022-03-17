@@ -5,15 +5,16 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Instructions to Run Locally:
+In command line:
+```console
+$ npm i
+$ npm run serve
 ```
-npm run serve
+In a separate shell:
+```console
+$ npm start
 ```
+then you will find the application at `localhost:8080` in the browser
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Alt text](/screenshot.JPG)
