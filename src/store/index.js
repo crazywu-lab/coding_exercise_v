@@ -5,6 +5,7 @@ export default createStore({
   state: {
     searchTerm: "",
     result: [],
+    hasResult: true,
   },
   getters: {},
   mutations: {
@@ -45,6 +46,7 @@ export default createStore({
       axios
         .get("http://localhost:3000/api/test/products/search/" + state.searchTerm)
         .then((response) => {
+          state.hasResult = response.data.length !== 0;
           commit("handleSearch", response.data);
         })
         .catch((error) => {

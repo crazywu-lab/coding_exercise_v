@@ -16,3 +16,5 @@ In a separate shell:
 $ npm start
 ```
 then you will find the application at `localhost:8080` in the browser
+
+![Alt text](/screenshot.JPG)
